@@ -3,13 +3,16 @@ package com.dkit.oop;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Property
+public class Property<Facilities>
 {
     private int propertyID;
     private String owner;
     private String postcode;
     private double sellingPrice;
     private double area;
+    private ArrayList<Facilities> facilities;
+
+
 
     public Property(int propertyID, String owner, String postcode, double sellingPrice, double area)
     {
@@ -18,6 +21,16 @@ public class Property
         this.postcode = postcode;
         this.sellingPrice = sellingPrice;
         this.area = area;
+        facilities = new ArrayList<>();
+    }
+
+    public Property(int propertyID, String owner, String postcode, double area){
+        this.propertyID = propertyID;
+        this.owner = owner;
+        this.postcode = postcode;
+        this.sellingPrice = 0.0;
+        this.area = area;
+        facilities = new ArrayList<>();
     }
 
     public int getPropertyID()
@@ -68,6 +81,52 @@ public class Property
     public void setArea(double area)
     {
         this.area = area;
+    }
+
+    public void addFacility(Facilities f){
+        if(f != null){
+            facilities.add(f);
+        }
+
+    }
+
+    public void removeFacility(Facilities f){
+        facilities.remove(f);
+    }
+
+    public ArrayList<Facilities> getFacilities(){
+        return facilities;
+    }
+
+    @Override
+    public String toString(){
+        return getClass().getSimpleName() + "{" +
+                "PropertyID = " + propertyID +
+                ", Owner = " + owner +
+                ", PostCode = " + postcode +
+                ", Selling Price = " + sellingPrice +
+                ", Area = " + area +
+                ", facilities = " + facilities;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Property p = (Property) o;
+        return  p.owner == owner &&
+                p.propertyID == propertyID;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(owner,propertyID);
+    }
+
+    public double calculateTax(){
+        return (getArea() * 2.2) + 15;
     }
 
 }
