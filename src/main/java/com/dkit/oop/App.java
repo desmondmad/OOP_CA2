@@ -60,9 +60,13 @@ public class App
             System.out.println("p1.equals(p3) is false");
         }
         System.out.println();
+        //CalculateTax()
+        System.out.println(p1.calculateTax());
+        System.out.println();
 
 
         System.out.println("Q2 - tests");
+
 
 
         System.out.println("Q3 - tests");
