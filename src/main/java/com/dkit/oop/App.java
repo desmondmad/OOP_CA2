@@ -87,9 +87,43 @@ public class App
 
 
         System.out.println("Q3 - tests");
-
+        //Inherited Class
+        PrivateProperty pp1 = new PrivateProperty(6,"George Micheal","ABVCMN929",500000,500,10,"Mansion");
+        System.out.println(pp1);
+        System.out.println();
+        PrivateProperty pp2 = pp1;
+        //equals()
+        if(pp1 == pp2){
+            System.out.println("pp1 == pp2 is true");
+        } else {
+            System.out.println("pp1 == pp2 is false");
+        }
+        if(pp1.equals(pp2)){
+            System.out.println("pp1.equals(pp2) is true");
+        } else {
+            System.out.println("pp1.equals(pp2) is false");
+        }
+        System.out.println();
+        //CalculateTax()
+        System.out.println(pp1.calculateTax());
+        System.out.println();
 
         System.out.println("Q4 - tests");
+        PrivateProperty pp3 = new PrivateProperty(7,"Steve Carey","AKJDFG438",170000,100,3,"Detached");
+        PrivateProperty pp4 = new PrivateProperty(8,"Mary Kate","JKSDFAHJ33",200000,120,4,"Apartment");
+        ArrayList<Property> allProps = new ArrayList<>();
+        for(int i = 0; i < prop.size(); i++){
+            allProps.add(prop.get(i));
+        }
+        allProps.add(pp1);
+        allProps.add(pp3);
+        allProps.add(pp4);
+
+        for (int i = 0; i < allProps.size();i++){
+            System.out.println(allProps.get(i));
+        }
+
+
 
 
     }
@@ -107,6 +141,12 @@ public class App
                 above.add(p.get(i));
         }
         return above;
+    }
+
+    public ArrayList<Property> displayAllPropID(ArrayList<Property> p){
+        for(int i = 0; i < p.size(); i++) {
+            return System.out.println("PropertyID = " + p.get(i).getPropertyID() + " Tax = " + p.get(i).calculateTax());
+        }
     }
 }
 
