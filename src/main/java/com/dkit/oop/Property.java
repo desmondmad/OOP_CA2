@@ -21,7 +21,7 @@ public class Property<Facilities>
         this.postcode = postcode;
         this.sellingPrice = sellingPrice;
         this.area = area;
-        facilities = new ArrayList<>();
+        this.facilities = new ArrayList<>();
     }
 
     public Property(int propertyID, String owner, String postcode, double area){
@@ -30,7 +30,7 @@ public class Property<Facilities>
         this.postcode = postcode;
         this.sellingPrice = 0.0;
         this.area = area;
-        facilities = new ArrayList<>();
+        this.facilities = new ArrayList<>();
     }
 
     public int getPropertyID()
@@ -98,6 +98,7 @@ public class Property<Facilities>
         return facilities;
     }
 
+
     @Override
     public String toString(){
         return getClass().getSimpleName() + "{" +
@@ -106,7 +107,8 @@ public class Property<Facilities>
                 ", PostCode = " + postcode +
                 ", Selling Price = " + sellingPrice +
                 ", Area = " + area +
-                ", facilities = " + facilities;
+                ", facilities = " + facilities + "}";
+
     }
 
     @Override
